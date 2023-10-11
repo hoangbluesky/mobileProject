@@ -5,8 +5,10 @@ import { styles } from '../style/HomePageCss';
 const products = [
   { id: '1', name: 'Barbeque', image: require('../assets/BBQ.png'),percent: '98%' },
   { id: '2', name: 'Burger', image: require('../assets/Burger.png'),percent: '91%' },
-  { id: '3', name: 'Sản phẩm 3',image: require('../assets/Pizza.png'),percent: '92%' },
-  // Thêm các sản phẩm khác vào đây
+  { id: '3', name: 'Pizza',image: require('../assets/Pizza.png'),percent: '92%' },
+  { id: '4', name: 'Amala',image: require('../assets/Amala.png'),percent: '73%' },
+  { id: '5', name: 'Rice',image: require('../assets/Com.png'),percent: '82%' },
+  { id: '6', name: 'Vegan',image: require('../assets/Vegan.png'),percent: '94%' },
 ];
 
 function HomePage() {
@@ -25,7 +27,7 @@ function HomePage() {
     </View>
   );
   return (
-    <ScrollView>
+    <ScrollView bounces={true} alwaysBounceVertical={true}>
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.menu}>

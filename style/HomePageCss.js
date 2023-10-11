@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     },
     header: {
         width: '100%',
-        height: '12%',
+        height: 300,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
         paddingBottom: 20,
         paddingRight: 10,
         paddingLeft: 10,
+        marginTop: -175,
     },
     menu: {
         flexDirection: 'row',
@@ -115,10 +116,10 @@ export const styles = StyleSheet.create({
 
     },
     contentProduct: {
-        // paddingHorizontal: 5,
+        marginBottom: 10,
     },
     product: {
-
+        marginBottom: 10,
     },
     boxImg: {
         position: 'relative',
@@ -154,6 +155,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginLeft: 5,
+        marginVertical: 5,
     },
     percent: {
         fontSize: 15,

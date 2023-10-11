@@ -6,8 +6,8 @@ function ScreenLogin({ navigation }) {
   const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
 
-  const goToHomeScreen = () => {
-    navigation.navigate('Home'); 
+  const goToDetail = () => {
+    navigation.navigate('Detail'); 
   };
   return (
     <View style={styles.container}>
@@ -36,7 +36,7 @@ function ScreenLogin({ navigation }) {
             value={password}
             onChangeText={(text) => setPassword(text)}
           />
-        <TouchableOpacity style={styles.btnLogin} onPress={goToHomeScreen} >
+        <TouchableOpacity style={styles.btnLogin} onPress={goToDetail} >
           <Text style={styles.btnTextLogin}>LOGIN</Text>
         </TouchableOpacity>
         <Text style= {styles.forgot} >Forgot password?</Text>
