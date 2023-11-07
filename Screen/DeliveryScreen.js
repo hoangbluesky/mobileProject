@@ -3,17 +3,13 @@ import { View, Text, TextInput, Button, StyleSheet,TouchableOpacity, Image, Flat
 import { styles } from '../style/HomePageCss';
 
 
-function SearchScreen() {
+function DeliveryScreen() {
     return(
         <View style={styles.contentLogo}>
-          <Text style = {styles.nameStore} >Lobace Food</Text>
-          <Text style = {styles.nameTile} >Delivery</Text>
-          <Text style = {styles.nameStore} >Lobace Food</Text>
-          <Text style = {styles.nameTile} >Delivery</Text>
           <Text style = {styles.nameStore} >Lobace Food</Text>
           <Text style = {styles.nameTile} >Delivery</Text>
         </View>
     )
 }
 
-export default SearchScreen;
+export default DeliveryScreen;

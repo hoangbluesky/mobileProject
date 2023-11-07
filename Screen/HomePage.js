@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet,TouchableOpacity, Image, FlatList,ScrollView } from 'react-native';
 import { styles } from '../style/HomePageCss';
+import { useNavigation } from '@react-navigation/native';
+
 
 const products = [
   { id: '1', name: 'Barbeque', image: require('../assets/BBQ.png'),percent: '98%' },
@@ -11,7 +13,7 @@ const products = [
   { id: '6', name: 'Vegan',image: require('../assets/Vegan.png'),percent: '94%' },
 ];
 
-function HomePage() {
+function HomePage({navigation}) {
   const renderItem = ({ item }) => (
     <View style={styles.product}>
       <View style={styles.boxImg}>
@@ -26,6 +28,12 @@ function HomePage() {
       </View>
     </View>
   );
+  const goToDelivery = () => {
+      navigation.navigate('DeliveryScreen');
+  }
+  const gotocart = () => {
+    navigation.navigate('DeliveryScreen');
+}
   return (
     <ScrollView bounces={true} alwaysBounceVertical={true}>
     <View style={styles.container}>
@@ -56,10 +64,10 @@ function HomePage() {
               <Text style={styles.titleOrder} >START YOUR ORDER</Text>
             </View>
             <View style ={styles.shipping} >
-              <TouchableOpacity style={styles.btnShipping} >
+              <TouchableOpacity style={styles.btnShipping} onPress={goToDelivery} >
                 <Text style={styles.btnShippingText}>DELIVERY</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.btnShipping} >
+              <TouchableOpacity style={styles.btnShipping} onPress={gotocart} >
                 <Text style={styles.btnShippingText}>CARRY OUT</Text>
               </TouchableOpacity>
             </View>

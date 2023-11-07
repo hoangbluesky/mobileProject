@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet,TouchableOpacity } from 'react-native';
 import { styles } from '../style/styles';
 
+
+
 function ScreenLogin({ navigation }) {
   const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
 
-  const goToDetail = () => {
+  const goToHomePage = () => {
     navigation.navigate('Detail'); 
   };
   return (
@@ -36,7 +38,7 @@ function ScreenLogin({ navigation }) {
             value={password}
             onChangeText={(text) => setPassword(text)}
           />
-        <TouchableOpacity style={styles.btnLogin} onPress={goToDetail} >
+        <TouchableOpacity style={styles.btnLogin} onPress={goToHomePage} >
           <Text style={styles.btnTextLogin}>LOGIN</Text>
         </TouchableOpacity>
         <Text style= {styles.forgot} >Forgot password?</Text>
