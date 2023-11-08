@@ -1,16 +1,52 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet,TouchableOpacity } from 'react-native';
 import { styles } from '../style/styles';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 function ScreenLogin({ navigation }) {
-  const [account, setAccount] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const goToHomePage = () => {
-    navigation.navigate('Detail'); 
+    if (email.trim() == '' || !email) {
+      alert('Không được để trống email !');
+    } else if (password.trim() == '' || !password) {
+      alert('Không được để trống mật khẩu !');
+    } else {
+      login();
+    }
   };
+
+  const login = async () => {
+    let userData = await AsyncStorage.getItem('userData');
+    if (userData) {
+      userData = JSON.parse(userData);
+      let arr = [...userData];
+      arr = arr.filter(
+        (value) =>
+          value.email.toLocaleLowerCase() == email.toLocaleLowerCase() &&
+          value.password == password
+      );
+      if (arr.length > 0) {
+        let curUser = arr[0];
+        AsyncStorage.setItem('curUser', JSON.stringify(curUser));
+        navigation.replace('BottomTabNavigator');
+      } else alert('Email hoặc mật khẩu không chính xác!');
+    } else {
+      alert('Email hoặc mật khẩu không chính xác!');
+    }
+  };
+  const gotoSingup = () => {
+    navigation.replace('Regis'); 
+  };
+  const checkLogin = async () => {
+    let userData = await AsyncStorage.getItem('curUser');
+    if (userData) navigation.replace('');
+  };
+  useEffect(() => {
+    checkLogin();
+  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.curve}>
@@ -24,12 +60,12 @@ function ScreenLogin({ navigation }) {
       </View>
 
       <View style= {styles.content}>
-        <Text style= {{fontWeight: 600}} >Account</Text>
+        <Text style= {{fontWeight: 600}} >Email</Text>
           <TextInput
             style={styles.input}
-            placeholder="Account"
-            value={account}
-            onChangeText={(text) => setAccount(text)}
+            placeholder="Your email"
+            value={email}
+            onChangeText={(text) => setEmail(text)}
           />
           <Text style= {{fontWeight: 600, marginTop: 20}} >Password</Text>
           <TextInput
@@ -42,6 +78,7 @@ function ScreenLogin({ navigation }) {
           <Text style={styles.btnTextLogin}>LOGIN</Text>
         </TouchableOpacity>
         <Text style= {styles.forgot} >Forgot password?</Text>
+        <Text style= {styles.singUP} onPress={gotoSingup} >Sign Up</Text>
       </View>
     </View>
     

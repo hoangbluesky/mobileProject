@@ -55,8 +55,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   btnLogin: {
-    marginTop: 30,
-    marginBottom: 20,
+    marginTop: 20,
     alignItems: 'center',
     backgroundColor: '#9139BA',
     paddingTop: 15,
@@ -68,8 +67,17 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   forgot: {
+    color: '#aac',
+    fontSize: 16,
+    textAlign:'center',
+    paddingTop: 10,
+    
+  },
+  singUP: {
     color: '#9139BA',
-    fontSize: 14,
-    textAlign:'center'
+    fontSize: 18,
+    textAlign:'center',
+    paddingTop: 10,
   }
+
 });

@@ -1,0 +1,12 @@
+{
+    "product": [
+        { "id": "1", "name": "Barbeque", "image": "http://192.168.137.1:2000/BBQ.png","percent": "98%" },
+        { "id": "2", "name": "Burger", "image": "http://192.168.137.1:2000/Burger.png","percent": "91%" },
+        { "id": "3", "name": "Pizza","image": "http://192.168.137.1:2000/Pizza.png","percent": "92%" },
+        { "id": "4", "name": "Amala","image": "http://192.168.137.1:2000/Amala.png","percent": "73%" },
+        { "id": "5", "name": "Rice","image": "http://192.168.137.1:2000/Com.png","percent": "82%" },
+        { "id": "6", "name": "Vegan","image": "http://192.168.137.1:2000/Vegan.png","percent": "94%" }
+    ]
+
+    
+}

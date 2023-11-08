@@ -3,15 +3,16 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Text, Image, StyleSheet } from 'react-native';
-
-import { MainStackNavigator, SearchStackNavigator, OrderScreenNavigation,AccountScreenNavigation } from "./stackNavigation";
-
+import HomePage from '../Screen/HomePage';
+import SearchScreen from '../Screen/SearchScreen';
+import OrderScreen from "../Screen/OrderScreen";
+import AccountScreen from "../Screen/AccountScreen";
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={MainStackNavigator} 
+    <Tab.Navigator   >
+      <Tab.Screen name="Home" component={HomePage} 
       options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
@@ -19,7 +20,7 @@ const BottomTabNavigator = () => {
           ),
           }} 
       />
-      <Tab.Screen name="SearchScreen" component={SearchStackNavigator} 
+      <Tab.Screen name="SearchScreen" component={SearchScreen} 
       options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
@@ -27,7 +28,7 @@ const BottomTabNavigator = () => {
           ),
           }} 
       />
-      <Tab.Screen name="OrderScreen" component={OrderScreenNavigation} 
+      <Tab.Screen name="OrderScreen" component={OrderScreen} 
       options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
@@ -35,7 +36,7 @@ const BottomTabNavigator = () => {
           ),
           }} 
       />
-      <Tab.Screen name="AccountScreen" component={AccountScreenNavigation} 
+      <Tab.Screen name="AccountScreen" component={AccountScreen} 
       options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (

@@ -2,22 +2,28 @@ import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet,TouchableOpacity, Image, FlatList,ScrollView } from 'react-native';
 import { styles } from '../style/HomePageCss';
 import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
-const products = [
-  { id: '1', name: 'Barbeque', image: require('../assets/BBQ.png'),percent: '98%' },
-  { id: '2', name: 'Burger', image: require('../assets/Burger.png'),percent: '91%' },
-  { id: '3', name: 'Pizza',image: require('../assets/Pizza.png'),percent: '92%' },
-  { id: '4', name: 'Amala',image: require('../assets/Amala.png'),percent: '73%' },
-  { id: '5', name: 'Rice',image: require('../assets/Com.png'),percent: '82%' },
-  { id: '6', name: 'Vegan',image: require('../assets/Vegan.png'),percent: '94%' },
-];
+// const products = [
+//   { id: '1', name: 'Barbeque', image: require('../assets/BBQ.png'),percent: '98%' },
+//   { id: '2', name: 'Burger', image: require('../assets/Burger.png'),percent: '91%' },
+//   { id: '3', name: 'Pizza',image: require('../assets/Pizza.png'),percent: '92%' },
+//   { id: '4', name: 'Amala',image: require('../assets/Amala.png'),percent: '73%' },
+//   { id: '5', name: 'Rice',image: require('../assets/Com.png'),percent: '82%' },
+//   { id: '6', name: 'Vegan',image: require('../assets/Vegan.png'),percent: '94%' },
+// ];
+
+
 
 function HomePage({navigation}) {
-  const renderItem = ({ item }) => (
+  const [products, setProducts] = useState([]);
+  
+  const renderProductItem = ({ item }) => (
     <View style={styles.product}>
       <View style={styles.boxImg}>
-        <Image source={item.image} style={styles.imgProduct} />
+        <Image source={{ uri :item.image }} style={styles.imgProduct} />
         <TouchableOpacity style={styles.btnProduct} >
           <Text style={styles.nameProduct}>{item.name}</Text>
         </TouchableOpacity>
@@ -33,7 +39,20 @@ function HomePage({navigation}) {
   }
   const gotocart = () => {
     navigation.navigate('DeliveryScreen');
-}
+  }
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://192.168.137.1:2000/api/products'); 
+        setProducts(response.data.product);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <ScrollView bounces={true} alwaysBounceVertical={true}>
     <View style={styles.container}>
@@ -89,7 +108,7 @@ function HomePage({navigation}) {
             <View style={styles.contentProduct}>
               <FlatList
               data={products}
-              renderItem={renderItem}
+              renderItem={renderProductItem}
               keyExtractor={(item) => item.id}/>
             </View>
         </View>
