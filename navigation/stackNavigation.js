@@ -9,6 +9,7 @@ import ScreenLogin from '../Screen/ScreenLogin';
 import ScreenRegis from '../Screen/ScreenRegis';
 import DeliveryScreen from '../Screen/DeliveryScreen';
 import BottomTabNavigator from "./TabNavigator";
+import DetailsScreen from "../Screen/DetailsScreen";
 
 const Stack = createStackNavigator();
 
@@ -21,7 +22,15 @@ const MainStackNavigator = () => {
     },headerTintColor: 'white', }}/>
         <Stack.Screen name="Welcome" component={WelcomeScreen}  options={{ headerShown: false }} />
         <Stack.Screen name="Regis" component={ScreenRegis}  options={{ headerShown: false }} />
-        {/* <Stack.Screen name="Detail" component={DetailsScreen}  options={{ headerShown: false }} /> */}
+        <Stack.Screen name="Detail" component={DetailsScreen}  options={{
+          headerTitle: 'Detail Product', // Đặt lại tiêu đề
+          headerTitleStyle: {
+            color: 'green',
+            fontSize: 24,
+            paddingBottom: 10,
+          },
+          headerShown: true,
+        }} />
         <Stack.Screen name="BottomTabNavigator" options={{ headerShown: false }} component={BottomTabNavigator} />
         <Stack.Screen name="DeliveryScreen"  component={DeliveryScreen} />
     </Stack.Navigator>

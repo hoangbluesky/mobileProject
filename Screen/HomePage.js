@@ -19,12 +19,14 @@ import axios from 'axios';
 
 function HomePage({navigation}) {
   const [products, setProducts] = useState([]);
-  
+  const gotoDetail = (productId) => {
+    navigation.navigate('Detail',{productId, products});
+  }
   const renderProductItem = ({ item }) => (
     <View style={styles.product}>
       <View style={styles.boxImg}>
         <Image source={{ uri :item.image }} style={styles.imgProduct} />
-        <TouchableOpacity style={styles.btnProduct} >
+        <TouchableOpacity style={styles.btnProduct} onPress={ () => gotoDetail(item.id)}>
           <Text style={styles.nameProduct}>{item.name}</Text>
         </TouchableOpacity>
       </View>
@@ -34,13 +36,18 @@ function HomePage({navigation}) {
       </View>
     </View>
   );
+  
   const goToDelivery = () => {
       navigation.navigate('DeliveryScreen');
   }
   const gotocart = () => {
     navigation.navigate('DeliveryScreen');
   }
-
+  const gotoCart  = () =>{
+    navigation.navigate('OrderScreen');
+  }
+  
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -66,10 +73,13 @@ function HomePage({navigation}) {
           <Text style = {styles.nameStore} >Lobace Food</Text>
           <Text style = {styles.nameTile} >Delivery</Text>
         </View>
-        <View style={styles.cart}>
-          <Image
-            source={require('../icon/shopping-cart.png')} 
-          />
+        <View style={styles.cart} > 
+          <Text onPress={gotoCart}>
+            <Image
+              source={require('../icon/shopping-cart.png')} 
+            />
+          </Text>
+          
         </View>
       </View>
       <View style={styles.body}>
