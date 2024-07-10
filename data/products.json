@@ -1,0 +1,10 @@
+{
+    "product": [
+        { "id": "1", "name": "Barbeque", "image": "http://192.168.137.1:2000/BBQ.png","percent": "98%", "price": "30","description":"Indulge in exquisite flavors with our gourmet dishes. Fresh, savory, and unforgettable culinary delights await your taste buds." },
+        { "id": "2", "name": "Burger", "image": "http://192.168.137.1:2000/Burger.png","percent": "91%", "price": "10","description":"Indulge in exquisite flavors with our gourmet dishes. Fresh, savory, and unforgettable culinary delights await your taste buds." },
+        { "id": "3", "name": "Pizza","image": "http://192.168.137.1:2000/Pizza.png","percent": "92%", "price": "20","description":"Indulge in exquisite flavors with our gourmet dishes. Fresh, savory, and unforgettable culinary delights await your taste buds." },
+        { "id": "4", "name": "Amala","image": "http://192.168.137.1:2000/Amala.png","percent": "73%", "price": "14","description":"Indulge in exquisite flavors with our gourmet dishes. Fresh, savory, and unforgettable culinary delights await your taste buds." },
+        { "id": "5", "name": "Rice","image": "http://192.168.137.1:2000/Com.png","percent": "82%", "price": "77","description":"Indulge in exquisite flavors with our gourmet dishes. Fresh, savory, and unforgettable culinary delights await your taste buds." },
+        { "id": "6", "name": "Vegan","image": "http://192.168.137.1:2000/Vegan.png","percent": "94%", "price": "16","description":"Indulge in exquisite flavors with our gourmet dishes. Fresh, savory, and unforgettable culinary delights await your taste buds." }
+    ]
+}
